@@ -80,8 +80,7 @@ The Equipment Monitoring System is a full-stack application designed to simulate
 ```
     /my_project
     │
-    ├── vscode/                  
-    ├── assets/                  
+    ├── vscode/                                    
     ├── node_modules/            
     ├── index.html               
     ├── style.css                
