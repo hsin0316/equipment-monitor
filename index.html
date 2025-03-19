@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>設備監控系統</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body> 
+    <header>
+        <h2>Equipment Monitoring System</h2>
+    </header>
+  
+    <main>
+      <!-- 左側 Fieldset (輸入資料) -->
+      <div class="fieldsetcontainer">
+        <fieldset>
+          <legend>Data Entry</legend>
+          <form action="" id="dataform">
+            <div class="inputgroup">
+              <label for="date">Date:</label>
+              <input type="date" id="date" name="Date" required>
+            </div>
+  
+            <div class="inputgroup">
+              <label for="temperature">Temperature (°C):</label>
+              <input type="number" id="temperature" name="Temperature" min="0" placeholder="Please enter a number." step="0.1">
+            </div>
+  
+            <div class="inputgroup">
+              <label for="pressure">Pressure (atm):</label>
+              <input type="number" id="pressure" name="Pressure" placeholder="Please enter a number." min="0" step="0.1">
+            </div>
+  
+            <div class="inputgroup">
+              <label for="current">Current (nA):</label>
+              <input type="number" id="current" name="Current" placeholder="Please enter a number." min="0" step="0.1">
+            </div>
+          
+        </fieldset>
+        <div class="btns">
+          <button type="submit" class="btn submitbtn">Submit</button>
+          <button type="reset" class="btn resetbtn">Clear</button> 
+        </div>
+      </div>
+    </form>
+  
+      <!-- 右側 Fieldset (查詢日期區間) -->
+      <div class="fieldsetcontainer">
+        <fieldset>
+          <legend>Date Range Query</legend>
+          <form action="" id="dataform2">
+            <div class="inputgroup">
+              <label for="startdate">From:</label>
+              <input type="date" id="startdate" name="startDate" required>
+            </div>
+  
+            <div class="inputgroup">
+              <label for="enddate">To:</label>
+              <input type="date" id="enddate" name="endDate" required>
+            </div>
+          
+        </fieldset>
+        <div class="btns">
+          <button type="submit" class="btn submitbtn">Submit</button>
+          <button type="reset" class="btn resetbtn">Clear</button> 
+        </div>
+      </div>
+    </form>
+        <div class="datacontainer">
+          <div class="tablecontainer">
+            <table>
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Temperature (°C)</th>
+                  <th>Pressure (atm)</th>
+                  <th>Current (nA)</th>
+                </tr>
+              </thead>
+              <tbody id="datatable">
+                <!-- 資料將由 JavaScript 動態插入 -->
+              </tbody>
+            </table>
+            <button id="downloadBtn">Download</button>
+          </div>
+      
+          <div class="carousel">
+            <div class="chartcontainer">
+              <ul class="slide-track">
+                <li class="slide">
+                  <canvas id="temperatureChart"></canvas>
+                </li>
+                <li class="slide">
+                  <canvas id="pressureChart"></canvas>
+                </li>
+                <li class="slide">
+                  <canvas id="currentChart"></canvas>
+                </li>
+              </ul>
+            </div>
+            
+            <button class="next-btn">&rarr;</button> 
+            <nav class="navigator"> 
+              <button class="indicator active"></button>
+              <button class="indicator"></button>
+              <button class="indicator"></button>
+            </nav>
+          </div>
+          
+        </div>
+    </main>           
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+<!-- 生成圖表 -->
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="./app.js"></script>
+
+</body>
+</html>
